@@ -29,9 +29,6 @@ Tarayıcı üzerinden Instagram takipçilerinizi ve takip ettiklerinizi analiz e
    - "Takip Edilenleri Getir" butonu ile takip ettiklerinizi görüntüleyin
    - Her liste için CSV olarak dışa aktarma yapabilirsiniz
 
-## Ekran Görüntüleri
-
-[Ekran görüntülerini buraya ekleyin]
 
 ## Teknik Detaylar
 
