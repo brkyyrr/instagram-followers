@@ -21,20 +21,56 @@ Tarayıcı üzerinden Instagram takipçilerinizi ve takip ettiklerinizi analiz e
 
 ---
 
-## Yeni Eklenen Özellikler (v1.2.0)
+# Yeni Eklenen Özellikler
 
-* **Analiz başlatma paneli**
-* **Sizi takip etmeyenleri bulma**
-* **Sizi takip eden ama sizin takip etmediklerinizi bulma**
-* **Checkbox ile kullanıcı seçimi**
-* **Seçilen kullanıcıları toplu takipten çıkarma**
-* **Tüm listeyi tek seferde takipten çıkarma**
-* **Tekli unfollow butonu**
-* **Geliştirilmiş kullanıcı arayüzü**
-* **Alfabetik kullanıcı listeleme**
-* **Profil fotoğrafı gösterimi**
-* **Seçim paneli**
-* **Unfollow işlemleri için güvenli gecikme sistemi**
+## v1.2.0 Güncellemesi
+
+* Analiz başlatma paneli
+* Sizi takip etmeyenleri bulma
+* Sizi takip eden ama sizin takip etmediklerinizi bulma
+* Checkbox ile kullanıcı seçimi
+* Seçilen kullanıcıları toplu takipten çıkarma
+* Tüm listeyi tek seferde takipten çıkarma
+* Tekli unfollow butonu
+* Geliştirilmiş kullanıcı arayüzü
+* Alfabetik kullanıcı listeleme
+* Profil fotoğrafı gösterimi
+* Seçim paneli
+* Unfollow işlemleri için güvenli gecikme sistemi
+
+---
+
+## v1.3.7 Güncellemesi (Tam Bütünlük & Syntax Fix)
+
+Yeni sürümde performans ve kullanılabilirlik önemli ölçüde geliştirilmiştir.
+
+### Yeni Özellikler
+
+* Gizli hesapları **tek tıkla gizleme filtresi**
+* Görünen kullanıcıları **toplu takipten çıkarma**
+* **Geri sayımlı mola sistemi**
+* Unfollow işlemlerinde **otomatik batch yönetimi**
+* İşlem sırasında **canlı durum göstergesi**
+* İşlem tamamlandığında **yeşil buton geri bildirimi**
+* Geliştirilmiş liste yönetimi
+* Syntax ve stabilite iyileştirmeleri
+
+### Filtreleme Özelliği
+
+Yeni eklenen filtre sayesinde:
+
+* Gizli hesaplar listeden **anında gizlenebilir**
+
+Panelde bulunan seçenek:
+
+```
+Gizli Hesapları Gizle
+```
+
+aktif edildiğinde:
+
+* 🔒 Private hesaplar listede görünmez
+* İşlem yalnızca görünen hesaplara uygulanır
 
 ---
 
@@ -79,17 +115,17 @@ Script çalıştırıldığında sayfanın üstüne bir analiz paneli eklenir.
 Panelde şu seçenekler bulunur:
 
 * Analizi Başlat
-* Takip Etmeyenleri Bul
-* Beni Takip Eden Ama Ben Takip Etmeyenler
+* Gizli Hesapları Gizle
+* Takip Etmeyenler
+* Geri Takip Etmediklerim
 * Takipçiler (.csv)
 * Takip Edilenler (.csv)
-* Takip Etmeyenler (.csv)
 
 ---
 
 # Takip Etmeyenleri Bulma
 
-**Takip Etmeyenleri Bul** butonuna bastığınızda:
+**Takip Etmeyenler** butonuna bastığınızda:
 
 * Sizi takip etmeyen kullanıcılar listelenir.
 
@@ -105,6 +141,19 @@ gösterilir.
 
 ---
 
+# Geri Takip Etmediklerim
+
+Bu özellik:
+
+* Sizi takip eden
+* Ama sizin takip etmediğiniz
+
+kullanıcıları listeler.
+
+Bu özellik sayesinde **karşılıklı olmayan takipleri kolayca analiz edebilirsiniz.**
+
+---
+
 # Takipten Çıkma Özelliği
 
 Script üzerinden doğrudan takipten çıkabilirsiniz.
@@ -117,7 +166,10 @@ Takipten Çık
 
 butonu bulunur.
 
-Bu buton ile **tekli unfollow** yapılabilir.
+İşlem başarılı olursa buton:
+
+* **Yeşil renge döner**
+* "Çıkıldı" mesajı gösterir
 
 ---
 
@@ -142,19 +194,18 @@ Bu buton ile **seçilen kullanıcılar toplu olarak takipten çıkarılır.**
 
 ---
 
-# Tümünü Takipten Çık
+# Görünenleri Toplu Takipten Çık
 
-Takip etmeyenler listesinde ayrıca:
+Liste üzerinde ayrıca şu seçenek bulunur:
 
 ```
-Tümünü Takipten Çık
+Görünenleri Takipten Çık
 ```
 
-butonu bulunur.
+Bu seçenek:
 
-Bu seçenek listedeki tüm hesapları takipten çıkarır.
-
-⚠️ Bu işlem geri alınamaz.
+* Filtre uygulanmış listeyi dikkate alır
+* Sadece ekranda görünen kullanıcıları takipten çıkarır
 
 ---
 
@@ -164,7 +215,6 @@ Aşağıdaki listeleri CSV olarak indirebilirsiniz:
 
 * Takipçiler
 * Takip Edilenler
-* Takip Etmeyenler
 
 CSV dosyası şu bilgileri içerir:
 
@@ -172,8 +222,6 @@ CSV dosyası şu bilgileri içerir:
 * Full Name
 * Verified
 * Private
-
-Dosyalar Excel veya Google Sheets ile açılabilir.
 
 ---
 
@@ -201,38 +249,41 @@ Kullanılan endpointler:
 
 Instagram tarafından engellenmemek için script gecikmeler kullanır.
 
-Varsayılan değerler:
+### Veri Çekme
 
 * İstekler arası bekleme: **2 saniye**
-* Batch veri çekme: **5 istek**
+* Batch boyutu: **5 kullanıcı**
 * Batch sonrası bekleme: **50 saniye**
-* Unfollow arası bekleme: **9 saniye**
-* Unfollow batch: **5 işlem**
-* Unfollow batch sonrası bekleme: **90 saniye**
 
-Bu değerler script içinde değiştirilebilir.
+### Unfollow İşlemleri
+
+* Unfollow arası bekleme: **9 saniye**
+* 5 işlem sonrası mola: **90 saniye**
+
+Bu ayarlar script içinde şu şekilde tanımlıdır:
+
+```
+const DELAY = {
+    BETWEEN_REQUESTS: 2000,
+    AFTER_BATCH: 50000,
+    BATCH_SIZE: 5,
+    BETWEEN_UNFOLLOWS: 9000,
+    AFTER_UNFOLLOW_BATCH: 90000,
+    UNFOLLOW_BATCH_SIZE: 5
+};
+```
+
+Bu molalar sırasında ekranda geri sayım gösterilir.
 
 ---
 
 # Performans
 
-Takipçi sayısına bağlı olarak analiz süresi değişebilir.
-
-Örnek süreler:
-
 | Takipçi Sayısı | Tahmini Süre |
 | -------------- | ------------ |
-| 500            | ~1 dakika    |
-| 1000           | ~2 dakika    |
-| 5000           | ~8-10 dakika |
-
----
-
-# Notlar
-
-* **Çok sayıda takipçisi olan hesaplar için işlem uzun sürebilir**
-* **Instagram'ın rate limiting politikaları nedeniyle beklemeler olabilir**
-* **Sadece erişilebilir hesapların takipçi listesi çekilebilir**
+| 500            | ~3 dakika    |
+| 1000           | ~5 dakika    |
+| 5000           | ~20+ dakika  |
 
 ---
 
@@ -250,23 +301,21 @@ Tüm işlemler **lokal olarak yapılır.**
 
 # Geliştirici Notları
 
-* Node.js sürümü: 16.14.0 ve üzeri önerilir
-* Kod güncellemeleri için rate limiting değerlerini ayarlayabilirsiniz
-* Instagram API değişikliklerinde güncelleme gerekebilir
+* Node.js 16+ önerilir
+* Instagram API değişikliklerinde script güncellemesi gerekebilir
 
 Script Versiyonu:
 
 ```
-1.2.0
+1.3.7
 ```
 
 ---
 
 # Yasal Uyarı
 
-**Bu araç Instagram ile resmi olarak ilişkili değildir. Instagram'ın API politikalarına uygun olarak geliştirilmiştir.**
-
-Kendi sorumluluğunuzda kullanın!
+Bu araç Instagram ile resmi olarak ilişkili değildir.
+Kendi sorumluluğunuzda kullanın.
 
 ---
 
@@ -285,13 +334,13 @@ MIT License
 git checkout -b feature/amazing-feature
 ```
 
-3. Değişikliklerinizi commit edin
+3. Commit
 
 ```
 git commit -m 'Add some amazing feature'
 ```
 
-4. Branch'inizi push edin
+4. Push
 
 ```
 git push origin feature/amazing-feature
