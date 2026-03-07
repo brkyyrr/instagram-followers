@@ -1,7 +1,7 @@
 /**
  * Instagram Follower/Following Analyzer
  * @author    Berkay Yurur
- * @version   1.4.0 (Takipçi Görüntüleme Desteği)
+ * @version   1.4.1 (Takipçi Görüntüleme Desteği)
  * * Özellikler:
  * - Takip Etmeyenler & Geri Takip Etmediklerim Analizi
  * - Takipçi Listesini Görüntüleme (Yeni!)
@@ -14,14 +14,13 @@
  */
 
 (async () => {
-    // Süre sabitleri
     const DELAY = {
-        BETWEEN_REQUESTS: 800,
-        AFTER_BATCH: 8000,
-        BATCH_SIZE: 10,
-        BETWEEN_UNFOLLOWS: 2000,      
-        AFTER_UNFOLLOW_BATCH: 30000,  
-        UNFOLLOW_BATCH_SIZE: 5       
+        BETWEEN_REQUESTS: 2000,
+        AFTER_BATCH: 50000,
+        BATCH_SIZE: 5,
+        BETWEEN_UNFOLLOWS: 9000,
+        AFTER_UNFOLLOW_BATCH: 90000,
+        UNFOLLOW_BATCH_SIZE: 5
     };
 
     const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));

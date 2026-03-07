@@ -89,16 +89,3 @@ Script aşağıdaki sistemleri kullanır:
 * Instagram GraphQL API & Web API
 * Async/Await Fetch mimarisi
 * Rate limit korumalı Batch sistemi
-
-### Rate Limiting Ayarları (v1.4.0)
-
-Instagram güvenliği için kullanılan güncel gecikme değerleri:
-
-```javascript
-const DELAY = {
-    BETWEEN_REQUESTS: 800,      // İstekler arası (ms)
-    AFTER_BATCH: 8000,         // Grup sonrası (ms)
-    BATCH_SIZE: 10,            // Grup büyüklüğü
-    BETWEEN_UNFOLLOWS: 2000,   // Unfollow arası (ms)
-    AFTER_UNFOLLOW_BATCH: 30000 // Unfollow molası (ms)
-};
