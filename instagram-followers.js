@@ -1,9 +1,10 @@
 /**
  * Instagram Follower/Following Analyzer
  * @author    Berkay Yurur
- * @version   1.3.7 (Tam Bütünlük & Syntax Fix)
+ * @version   1.4.0 (Takipçi Görüntüleme Desteği)
  * * Özellikler:
  * - Takip Etmeyenler & Geri Takip Etmediklerim Analizi
+ * - Takipçi Listesini Görüntüleme (Yeni!)
  * - CSV Olarak Dışa Aktarma (Takipçi ve Takip Edilenler)
  * - Gizli Hesap Filtresi (🔒 İkonu Dahil)
  * - Doğrulanmış Hesap Rozeti (✓)
@@ -13,13 +14,14 @@
  */
 
 (async () => {
+    // Süre sabitleri
     const DELAY = {
-        BETWEEN_REQUESTS: 2000,
-        AFTER_BATCH: 50000,
-        BATCH_SIZE: 5,
-        BETWEEN_UNFOLLOWS: 9000,
-        AFTER_UNFOLLOW_BATCH: 90000,
-        UNFOLLOW_BATCH_SIZE: 5
+        BETWEEN_REQUESTS: 800,
+        AFTER_BATCH: 8000,
+        BATCH_SIZE: 10,
+        BETWEEN_UNFOLLOWS: 2000,      
+        AFTER_UNFOLLOW_BATCH: 30000,  
+        UNFOLLOW_BATCH_SIZE: 5       
     };
 
     const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
@@ -243,6 +245,7 @@
             <div class="ig-filter-box">
                 <label><input type="checkbox" id="hidePrivateFilter"> Gizli Hesapları Gizle</label>
             </div>
+            <button class="ig-button" id="showFollowers" disabled>Takipçiler</button>
             <button class="ig-button" id="compareUsers" disabled>Takip Etmeyenler</button>
             <button class="ig-button" id="findNonFollowing" disabled>Geri Takip Etmediklerim</button>
             <hr style="border:0; border-top:1px solid #262626; margin:10px 0;">
@@ -270,15 +273,24 @@
             if(userData) {
                 followers = await getUsers(userData.id, true, null, [], userData.edge_followed_by.count);
                 following = await getUsers(userData.id, false, null, [], userData.edge_follow.count);
+                
+                // Butonları Aktif Et
+                document.getElementById('showFollowers').disabled = false;
                 document.getElementById('compareUsers').disabled = false;
                 document.getElementById('findNonFollowing').disabled = false;
                 document.getElementById('expFol').disabled = false;
                 document.getElementById('expFoll').disabled = false;
+                
                 showUsers(following, "Takip Edilenler");
             }
             startBtn.disabled = false; startBtn.textContent = 'Analiz Bitti';
         });
     }
+
+    // --- BUTON OLAYLARI ---
+    document.getElementById('showFollowers').addEventListener('click', () => {
+        showUsers(followers, "Takipçiler");
+    });
 
     document.getElementById('compareUsers').addEventListener('click', () => {
         const l = following.filter(f => !followers.some(fol => fol.username === f.username));
