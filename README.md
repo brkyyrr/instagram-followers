@@ -33,7 +33,7 @@ Instagram takipçi ve takip edilen analizini **tarayıcı üzerinden doğrudan y
 
 ## 1. Instagram'a giriş yapın
 Tarayıcı üzerinden [instagram.com](https://www.instagram.com) adresine gidin ve hesabınıza giriş yapın.
-Hazırladığımız araç sayfasını açın: [Instagram Analyzer Tool](./index.html)
+
 ---
 
 ## 2. Geliştirici Konsolunu Açın
@@ -66,7 +66,7 @@ Bir veya birden fazla kullanıcıyı yanındaki kutucuktan (checkbox) seçtiğin
 
 ---
 
-# Güvenlik ve Hız Sınırları (v1.8.1)
+# Güvenlik ve Hız Sınırları (v1.8.0)
 
 Instagram limitlerine takılmamak için aşağıdaki güvenli değerler uygulanmaktadır:
 
@@ -89,7 +89,7 @@ Instagram limitlerine takılmamak için aşağıdaki güvenli değerler uygulanm
 
 # Versiyon Notları
 
-### v1.8.1 (Son Güncelleme)
+### v1.8.0 (Son Güncelleme)
 * **[Yeni]** Instagram'ın yeni güvenlik protokolleri için `X-Instagram-AJAX` ve `X-CSRFToken` başlıkları eklendi.
 * **[Yeni]** Takipten çıkma işlemindeki "Sırada" takılma sorunu `credentials: 'include'` eklenerek çözüldü.
 * **[Yeni]** İşlem durumunu takip eden kalıcı Log Paneli eklendi.
