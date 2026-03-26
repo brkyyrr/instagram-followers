@@ -2,379 +2,108 @@
 
 [![Maintenance](https://img.shields.io/badge/maintained-yes-green)]()
 
-Instagram takipçi ve takip edilen analizini **tarayıcı üzerinden doğrudan yapmanızı sağlayan bir JavaScript aracıdır.**
-
-Kurulum gerektirmez.
-Scripti **tarayıcı konsoluna yapıştırarak çalıştırabilirsiniz.**
+Instagram takipçi ve takip edilen analizini **tarayıcı üzerinden doğrudan yapmanızı sağlayan, yüksek güvenlikli bir JavaScript aracıdır.** Kurulum gerektirmez. Scripti **tarayıcı konsoluna yapıştırarak çalıştırabilirsiniz.**
 
 ---
 
 # Özellikler
 
 ## Temel Özellikler
-
-* Takipçileri görüntüleme
-* Takip edilenleri görüntüleme
-* Sizi takip etmeyenleri bulma
-* Geri takip etmediğiniz kullanıcıları bulma
-* CSV olarak dışa aktarma
-* Instagram rate limit koruması
-* İlerleme çubuğu
-* Alfabetik kullanıcı listeleme
-* Profil fotoğrafı gösterimi
+* **Hızlı Analiz:** Takipçi ve takip edilen listelerini paralel (eş zamanlı) olarak çeker.
+* **Sizi Takip Etmeyenler:** Tek tıkla sizi takip etmeyenleri listeler.
+* **Alfabetik Sıralama:** Tüm listeler otomatik olarak A'dan Z'ye sıralanır.
+* **Profil Detayları:** Profil fotoğrafı, tam isim ve gizlilik durumu (🔒) gösterimi.
+* **Doğrulanmış Hesap Desteği:** Verified (✓) rozetlerini tanır.
 
 ---
 
-## Gelişmiş Özellikler (v1.4.1)
-
-* Takipçi listesi görüntüleme
-* Gizli hesap filtresi
-* Verified hesap rozeti
-* Checkbox ile kullanıcı seçimi
-* Tekli takipten çıkma
-* Çoklu kullanıcıyı takipten çıkarma
-* Listedeki tüm kullanıcıları takipten çıkarma
-* Toplu işlem sistemi
-* İşlem ilerleme göstergesi
-* Batch işlem sistemi
-* Güvenli gecikme mekanizması
-* İşlem sonrası görsel buton geri bildirimi
-* Unfollow işlemleri için otomatik mola sistemi
-* Mola sırasında geri sayım göstergesi
+## Gelişmiş Güvenlik ve İşlem (v1.8.1)
+* **Gelişmiş İstek Motoru:** Instagram'ın modern Web API'si ile tam uyumlu CSRF ve Header yönetimi.
+* **"Sırada" Bekleme Çözümü:** İsteklerin askıda kalmasını engelleyen kimlik doğrulama sistemi.
+* **Dinamik Log Paneli:** İşlem sırasındaki tüm süreçleri ve molaları anlık olarak panelden takip edebilirsiniz.
+* **Akıllı Filtreleme:** Gizli hesapları listelerde isteğe bağlı olarak gizleme.
+* **Toplu Unfollow Sistemi:** Checkbox ile seçilen kullanıcıları güvenli aralıklarla takipten çıkarma.
+* **İnsansı Gecikme Mekanizması:** Her işlem arasında 25-45 saniye arası rastgele bekleme.
+* **Otomatik Güvenlik Molası:** Her 5 işlemde bir 5 dakikalık zorunlu mola ve geri sayım sayacı.
+* **Modern Karanlık Tema:** Instagram arayüzü ile uyumlu, sabitlenmiş profesyonel panel.
 
 ---
 
 # Kullanım
 
 ## 1. Instagram'a giriş yapın
-
-Tarayıcı üzerinden:
-
-```
-https://www.instagram.com
-```
-
-adresine gidin ve hesabınıza giriş yapın.
+Tarayıcı üzerinden [instagram.com](https://www.instagram.com) adresine gidin ve hesabınıza giriş yapın.
 
 ---
 
 ## 2. Geliştirici Konsolunu Açın
-
-### Windows
-
-```
-Ctrl + Shift + J
-```
-
-### MacOS
-
-```
-⌘ + ⌥ + I
-```
+* **Windows:** `Ctrl + Shift + J`
+* **MacOS:** `⌘ + ⌥ + I`
 
 ---
 
 ## 3. Scripti Çalıştırın
-
-Script kodunu **konsola yapıştırın** ve Enter tuşuna basın.
-
-Script çalıştırıldığında sayfanın üzerinde bir **kontrol paneli** açılır.
+Script kodunu kopyalayıp **konsola yapıştırın** ve Enter tuşuna basın. Sayfanın üzerinde analiz paneli açılacaktır.
 
 ---
 
 ## 4. Analizi Başlatın
-
-Panelde:
-
-```
-Analizi Başlat
-```
-
-butonuna tıklayın.
-
-Daha sonra Instagram **kullanıcı adınızı girin.**
-
-Script aşağıdaki verileri çeker:
-
-* Takipçiler
-* Takip edilenler
+1. **Analizi Başlat** butonuna tıklayın.
+2. Instagram **kullanıcı adınızı** girin.
+3. Script paralel olarak verileri çekmeye başlar ve ilerleme durumunu log panelinde gösterir.
 
 ---
 
-# Arayüz
+# İşlem Paneli Detayları
 
-Script çalıştırıldığında sayfanın üstünde bir **analiz paneli** oluşturulur.
+### Sol Menü (Kontroller)
+* **Analizi Başlat:** Veri çekme sürecini tetikler.
+* **Gizli Hesap Filtreleri:** Takipçi veya Takip Edilen listelerindeki gizli hesapları anlık filtreler.
+* **Kategori Butonları:** Takipçiler, Takip Edilenler ve Takip Etmeyenler listeleri arasında geçiş sağlar.
 
-Panel iki bölümden oluşur.
-
----
-
-## Sol Menü
-
-Sol tarafta aşağıdaki seçenekler bulunur:
-
-* Analizi Başlat
-* Takipçiler
-* Takip Etmeyenler
-* Geri Takip Etmediklerim
-* Gizli Hesapları Gizle
-* Takipçiler (.csv)
-* Takip Edilenler (.csv)
+### Toplu İşlem Paneli
+Bir veya birden fazla kullanıcıyı yanındaki kutucuktan (checkbox) seçtiğinizde, ekranın sol altında **"Seçilenleri Takipten Çık"** butonu belirir. Bu buton, güvenli modda toplu işlemi başlatır.
 
 ---
 
-## Kullanıcı Listesi
+# Güvenlik ve Hız Sınırları (v1.8.1)
 
-Kullanıcılar aşağıdaki bilgilerle listelenir:
+Instagram limitlerine takılmamak için aşağıdaki güvenli değerler uygulanmaktadır:
 
-* Profil fotoğrafı
-* Kullanıcı adı
-* Tam isim
-* Verified rozet
-* Gizli hesap göstergesi
-* Takipten çık butonu
-
----
-
-# Takip Etmeyenleri Bulma
-
-```
-Takip Etmeyenler
-```
-
-butonuna bastığınızda:
-
-Sizi takip etmeyen kullanıcılar listelenir.
-
-Her kullanıcı için şu bilgiler gösterilir:
-
-* Profil fotoğrafı
-* Kullanıcı adı
-* Tam isim
-* Verified hesap
-* Gizli hesap göstergesi
+| İşlem | Açıklama | Süre |
+| :--- | :--- | :--- |
+| **Veri Çekme Gecikmesi** | Her 50 kullanıcıda bir bekleme | 5 Saniye |
+| **Unfollow Gecikmesi** | İşlemler arası rastgele bekleme | 25 - 45 Saniye |
+| **İşlem Grubu (Batch)** | Mola öncesi maksimum işlem | 5 Kullanıcı |
+| **Güvenlik Molası** | Batch sonrası zorunlu bekleme | 300 Saniye (5 dk) |
 
 ---
 
-# Geri Takip Etmediklerim
-
-```
-Geri Takip Etmediklerim
-```
-
-butonu ile:
-
-Sizi takip eden fakat sizin takip etmediğiniz kullanıcılar bulunur.
-
-Bu listeyi analiz ederek **geri takip yapabilirsiniz.**
+# Teknik Altyapı
+* **Instagram GraphQL API:** Veri listeleme için query hash kullanımı.
+* **Instagram Web API v1:** Takipten çıkma ve profil sorgulama işlemleri.
+* **CSRF Protection:** Oturum çerezleri ve token yönetimi.
+* **Async/Await:** Donma yapmayan akıcı işlem süreci.
 
 ---
 
-# Takipten Çıkma Özelliği
+# Versiyon Notları
 
-Script üzerinden doğrudan **takipten çıkabilirsiniz.**
-
-Her kullanıcının yanında:
-
-```
-Takipten Çık
-```
-
-butonu bulunur.
-
-Bu buton ile **tekli unfollow** yapılabilir.
-
-Başarılı işlem sonrası buton **yeşile döner.**
-
----
-
-# Çoklu Seçim (Checkbox)
-
-Her kullanıcının yanında bir **checkbox** bulunur.
-
-Birden fazla kullanıcı seçebilirsiniz.
-
-Seçim yaptığınızda ekranda bir panel görünür:
-
-```
-X kişi seçildi
-Seçilenleri Takipten Çık
-```
-
-Bu buton ile seçilen kullanıcılar **toplu olarak takipten çıkarılır.**
-
----
-
-# Tümünü Takipten Çık
-
-Bazı listelerde ayrıca şu buton bulunur:
-
-```
-Görünenleri Takipten Çık
-```
-
-Bu seçenek listedeki tüm kullanıcıları takipten çıkarır.
-
-⚠️ Bu işlem geri alınamaz.
-
----
-
-# Gizli Hesap Filtresi
-
-Panelde bulunan seçenek:
-
-```
-Gizli Hesapları Gizle
-```
-
-aktif edildiğinde:
-
-* Private hesaplar listede gösterilmez.
-
----
-
-# CSV Export
-
-Script aşağıdaki listeleri CSV olarak indirebilir:
-
-* Takipçiler
-* Takip Edilenler
-
-CSV dosyası şu bilgileri içerir:
-
-* Username
-* Full Name
-* Verified
-* Private
-
-Dosyalar:
-
-* Excel
-* Google Sheets
-* LibreOffice
-
-ile açılabilir.
-
----
-
-# Teknik Detaylar
-
-Script aşağıdaki sistemleri kullanır:
-
-* Instagram GraphQL API
-* Instagram Web API
-* Async Fetch
-* Batch Request sistemi
-* Rate limit koruması
-* DOM tabanlı arayüz oluşturma
-
----
-
-## Kullanılan Endpointler
-
-```
-/graphql/query/
-/api/v1/users/web_profile_info/
-/api/v1/web/friendships/{userId}/unfollow/
-```
-
----
-
-# Rate Limit Koruması
-
-Instagram tarafından engellenmemek için script gecikmeler kullanır.
-
-Varsayılan ayarlar:
-
-| İşlem                          | Süre       |
-| ------------------------------ | ---------- |
-| İstekler arası bekleme         | 2 saniye   |
-| Batch veri çekme               | 5 istek    |
-| Batch sonrası bekleme          | 50 saniye  |
-| Unfollow arası bekleme         | 20 saniye  |
-| Unfollow batch                 | 5 işlem    |
-| Unfollow batch sonrası bekleme | 300 saniye |
-
-Bu değerler script içinde değiştirilebilir.
-
----
-
-# Performans
-
-Takipçi sayısına göre analiz süresi değişebilir.
-
-| Takipçi Sayısı | Tahmini Süre |
-| -------------- | ------------ |
-| 500            | ~1 dakika    |
-| 1000           | ~2 dakika    |
-| 5000           | ~8–10 dakika |
-| 10000+         | 15+ dakika   |
-
----
-
-# Güvenlik
-
-Script:
-
-* Tarayıcı içinde çalışır
-* Harici sunucuya veri göndermez
-* Hesap bilgilerini kaydetmez
-* Tüm işlemler **lokal olarak yapılır**
-
----
-
-# Notlar
-
-* Çok fazla işlem yapılması Instagram tarafından geçici olarak engellenmenize neden olabilir
-* Script sadece erişilebilir hesapların verilerini çekebilir
-* Instagram API değişikliklerinde güncelleme gerekebilir
-
----
-
-# Script Versiyonu
-
-```
-1.4.1
-```
+### v1.8.1 (Son Güncelleme)
+* **[Yeni]** Instagram'ın yeni güvenlik protokolleri için `X-Instagram-AJAX` ve `X-CSRFToken` başlıkları eklendi.
+* **[Yeni]** Takipten çıkma işlemindeki "Sırada" takılma sorunu `credentials: 'include'` eklenerek çözüldü.
+* **[Yeni]** İşlem durumunu takip eden kalıcı Log Paneli eklendi.
+* **[Yeni]** 5 dakikalık güvenlik molası ve geri sayım sayacı eklendi.
+* **[Güncelleme]** Veri çekme hızı `Promise.all` ile optimize edildi.
+* **[Kaldırıldı]** v1.4.1'de bulunan ancak stabil çalışmayan CSV Export özelliği pasif olduğu için temizlendi.
+* **[Düzeltme]** Liste değişikliklerinde arayüzün bozulmasına neden olan DOM hataları giderildi.
 
 ---
 
 # Yasal Uyarı
-
-Bu araç **Instagram ile resmi olarak ilişkili değildir.**
-
-Instagram API değişiklikleri nedeniyle zaman zaman çalışmayabilir.
-
-Kullanım tamamen **kullanıcının sorumluluğundadır.**
+Bu araç eğitim amaçlı geliştirilmiştir ve **Instagram ile resmi bir bağı yoktur.** Çok sık kullanım hesap kısıtlamalarına yol açabilir. Tüm sorumluluk kullanıcıya aittir.
 
 ---
 
 # Lisans
-
 MIT License
-
----
-
-# Katkıda Bulunma
-
-1. Repository'yi fork edin
-
-2. Feature branch oluşturun
-
-```
-git checkout -b feature/amazing-feature
-```
-
-3. Değişiklikleri commit edin
-
-```
-git commit -m "Add some amazing feature"
-```
-
-4. Branch'i push edin
-
-```
-git push origin feature/amazing-feature
-```
-
-5. Pull Request açın
