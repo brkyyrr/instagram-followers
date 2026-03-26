@@ -33,7 +33,7 @@ Instagram takipçi ve takip edilen analizini **tarayıcı üzerinden doğrudan y
 
 ## 1. Instagram'a giriş yapın
 Tarayıcı üzerinden [instagram.com](https://www.instagram.com) adresine gidin ve hesabınıza giriş yapın.
-
+Hazırladığımız araç sayfasını açın: [Instagram Analyzer Tool](./index.html)
 ---
 
 ## 2. Geliştirici Konsolunu Açın
